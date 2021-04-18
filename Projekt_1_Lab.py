@@ -7,7 +7,16 @@ def horner(wielomian, n, x):
         wynik = wynik*x + wielomian[i]
   
     return wynik
+# funkcja wczytująca pliki
+def wczytywaniepliku():
+    nazwapliku = "input.txt"
+    tablica = []
+    f = open(nazwapliku, 'r')
+    for line in f:
+        print(line, end='')
+    return tablica
 
+wczytywaniepliku()
 wielomian = [2, -6, 2, -1]
 #pobranie wartości x dla której ma być obliczona wartość od użytkownika
 x = int(input("Podaj wartość x: "))
