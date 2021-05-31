@@ -32,7 +32,20 @@ def parse():                                  # Function that parses arguments
         print(USAGE)
         sys.exit(1) 
         
-
+def read_config(filename):              # Configuration function
+    x = 2
+    inputfile = "input.txt"
+    config = configparser.ConfigParser()
+    filename = Path(filename)
+    if not(filename.is_file()):
+        print("Config file does not exist")
+        sys.exit(1) 
+    config.read(filename)
+    if "OurX" in config['DEFAULT']:
+        x =  config['DEFAULT']['OurX']
+    if "InputFile" in config['DEFAULT']:
+        inputfile = config['DEFAULT']['InputFile']
+    return  x, inputfile
 
 
 def file_open(filename):
